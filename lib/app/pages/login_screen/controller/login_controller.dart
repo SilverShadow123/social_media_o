@@ -22,6 +22,7 @@ class LoginController extends GetxController{
       Get.snackbar('Error', 'Please fill in all fields.');
       return;
     }
+    Get.dialog(const Center(child: CircularProgressIndicator()), barrierDismissible: false);
     try{
     await FirebaseAuth.instance.signInWithEmailAndPassword(email: email, password: password);
     Get.offAllNamed(AppRoutes.home);

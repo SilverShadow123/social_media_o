@@ -90,7 +90,7 @@ class EarnedListItem extends StatelessWidget {
                   id: expense.id,
                   name: data['expenseName'],
                   description: data['description'],
-                  amount: data['amount'],
+                  amount: data['amount'] != null ? (data['amount'] as num).toDouble() : 0.0,
                 ),
               ],
             ),

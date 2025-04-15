@@ -21,8 +21,8 @@ class HomeListItem extends StatelessWidget {
         data['createdAt'] != null
             ? (data['createdAt'] as Timestamp).toDate().toString().split(' ')[0]
             : 'No Date';
-    final double amountValue =
-        data['amount'] != null ? data['amount'] as double  : 0.0;
+    final double amountValue = data['amount'] != null ? (data['amount'] as num).toDouble() : 0.0;
+
     final String amount = "\$${amountValue.toStringAsFixed(2)}";
 
     return
@@ -93,7 +93,7 @@ class HomeListItem extends StatelessWidget {
                   id: expense.id,
                   name: data['expenseName'],
                   description: data['description'],
-                  amount: data['amount'],
+                  amount: data['amount'] != null ? (data['amount'] as num).toDouble() : 0.0,
                 ),
               ],
             ),

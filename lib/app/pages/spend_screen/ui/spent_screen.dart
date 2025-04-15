@@ -40,7 +40,7 @@ SpentScreen({super.key});
 
                   for (var doc in docs) {
                     final data = doc.data() as Map<String, dynamic>;
-                    final amount = data['amount'] != null ? data['amount'] as double : 0.0;
+                    final amount = data['amount'] != null ? (data['amount'] as num).toDouble() : 0.0;
                     if (amount <= 0) {
                       spentAmount += amount;
                     }
@@ -64,7 +64,7 @@ SpentScreen({super.key});
           // Filter only positive (earned) expenses.
           final List<DocumentSnapshot> positiveDocs = snapshot.data!.docs.where((doc) {
             final Map<String, dynamic> data = doc.data() as Map<String, dynamic>;
-            final double amountValue = (data['amount'] ?? 0).toDouble();
+            final double amountValue = data['amount'] != null ? (data['amount'] as num).toDouble() : 0.0;
             return amountValue <= 0;
           }).toList();
 

@@ -27,7 +27,7 @@ class ExpenseHeader extends StatelessWidget {
 
           for (var doc in docs) {
             final data = doc.data() as Map<String, dynamic>;
-            final amount = data['amount'] != null ? data['amount'] as double : 0.0;
+            final amount = data['amount'] != null ? (data['amount'] as num).toDouble() : 0.0;
 
             totalAmount += amount;
             if (amount >= 0) {

@@ -23,7 +23,7 @@ class SpentListItem extends StatelessWidget {
         ? DateFormat('yMMMd')
         .format((data['createdAt'] as Timestamp).toDate())
         : 'No Date';
-    final double amountValue = (data['amount'] ?? 0).toDouble();
+    final double amountValue = data['amount'] != null ? (data['amount'] as num).toDouble() : 0.0;
     final String amount = "\$${amountValue.toStringAsFixed(2)}";
 
     return Padding(
@@ -90,7 +90,7 @@ class SpentListItem extends StatelessWidget {
                   id: expense.id,
                   name: data['expenseName'],
                   description: data['description'],
-                  amount: data['amount'],
+                  amount: data['amount'] != null ? (data['amount'] as num).toDouble() : 0.0,
                 ),
               ],
             ),
