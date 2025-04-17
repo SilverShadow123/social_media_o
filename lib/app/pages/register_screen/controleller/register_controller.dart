@@ -11,7 +11,7 @@ class RegisterController extends GetxController {
   final TextEditingController passwordTEController = TextEditingController();
   final TextEditingController confirmPasswordTEController = TextEditingController();
 
-  final FirestoreService _firestoreService = FirestoreService(); // Add this
+  final FirestoreService _firestoreService = FirestoreService();
 
   @override
   void onClose() {
