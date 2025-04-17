@@ -7,7 +7,8 @@ import '../controleller/register_controller.dart';
 
 class RegisterScreen extends GetView {
   RegisterScreen({super.key});
-final RegisterController controller = Get.find<RegisterController>();
+@override
+  final RegisterController controller = Get.find<RegisterController>();
 
   @override
   Widget build(BuildContext context) {
